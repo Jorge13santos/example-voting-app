@@ -13,6 +13,7 @@ If you're using Docker Desktop on Windows, you can run the Linux version by swit
 Run in this directory:
 
 docker-compose up
+
 The app will be running at http://localhost:5000, and the results will be at http://localhost:5001.
 
 Alternately, if you want to run it on a Docker Swarm, first make sure you have a swarm. If you don't, run:
@@ -21,15 +22,18 @@ docker swarm init
 Once you have your swarm, in this directory run:
 
 docker stack deploy --compose-file docker-stack.yml vote
+
 Windows Containers
 An alternative version of the app uses Windows containers based on Nano Server. This stack runs on .NET Core, using NATS for messaging and TiDB for storage.
 
 You can build from source using:
 
 docker-compose -f docker-compose-windows.yml build
+
 Then run the app using:
 
 docker-compose -f docker-compose-windows.yml up -d
+
 Or in a Windows swarm, run docker stack deploy -c docker-stack-windows.yml vote
 
 The app will be running at http://localhost:5000, and the results will be at http://localhost:5001.
@@ -40,6 +44,7 @@ The folder k8s-specifications contains the yaml specifications of the Voting App
 First create the vote namespace
 
 $ kubectl create namespace vote
+
 Run the following command to create the deployments and services objects:
 
 $ kubectl create -f k8s-specifications/
